@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import {FaMapMarker} from 'react-icons/fa'
+import { FaMapMarker } from "react-icons/fa";
 
 const JobListing = ({ job }) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
 
-  let description = job.description;
+  let description = job.description || "";
 
-  if (!showFullDescription) {
+  if (!showFullDescription && description.length > 90) {
     description = description.substring(0, 90) + "...";
   }
 
